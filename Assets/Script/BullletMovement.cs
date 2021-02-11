@@ -13,13 +13,20 @@ public class BullletMovement : MonoBehaviour
        
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+       
+    {
+        if (collision.gameObject.name != "Player")
+        {
+            Debug.Log(collision.gameObject.name);
+            Destroy(gameObject);
+        }
+    }
+
 
     void Update()
     {
 
     }
-    void FixedUpdate()
-    {
-       
-    }
+
 }
