@@ -1,25 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class BullletMovement : MonoBehaviour
 {
-    public float moveSpeed = 106;
-    public Rigidbody2D rigidbody;
-  
+    public float startVelocity = 100;
+    
+    private Rigidbody2D rb;
+
     void Start()
     {
-        rigidbody.velocity = transform.forward * moveSpeed;
-       
-    }
-
-
-    void Update()
-    {
-
-    }
-    void FixedUpdate()
-    {
-       
+        rb = GetComponent<Rigidbody2D>();
+        rb.velocity = transform.right * startVelocity;
     }
 }

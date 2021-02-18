@@ -1,26 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
     public GameObject BulletPrefab;
-    void Start()
-    {
-
-    }
-
-
+    public float spawnOffset = 1.0f;
+    public float spawnZ = 10.0f;
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 derection = mousePos - transform.position;
-            mousePos = new Vector3(mousePos.x, mousePos.y, 0);
-            var bullet = Instantiate(BulletPrefab, transform.position , Quaternion.LookRotation(derection,Vector3.forward));
-          //  var bulletScript = bullet.GetComponent<BullletMovement>();
-            //  bulletScript.direction
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 ownPos = new Vector2(transform.position.x, transform.position.y);
+            Vector2 direction = (mousePos - ownPos).normalized;
+            Vector3 spawnPos = ownPos + direction * spawnOffset;
+            float degrees = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            var bullet = Instantiate(BulletPrefab, spawnPos, Quaternion.Euler(0.0f, 0.0f, degrees));
         }
     }
 }
