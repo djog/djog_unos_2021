@@ -12,4 +12,9 @@ public class BullletMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * startVelocity;
     }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        // TODO: Do things related to damage etc. here
+        Destroy(gameObject);
+    }
 }
