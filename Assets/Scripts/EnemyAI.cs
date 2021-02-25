@@ -7,7 +7,6 @@ using Pathfinding;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyAI : MonoBehaviour
 {
-    public Transform target;
     public float moveSpeed = 6.0f;
     public float nextWaypointDist = 1.2f;
 
@@ -21,6 +20,7 @@ public class EnemyAI : MonoBehaviour
 
 
     private Rigidbody2D rb;
+    private Transform target;
     private Seeker seeker;
     private Path path;
     private bool reachedDestination;
@@ -30,6 +30,7 @@ public class EnemyAI : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
+        target = GameManager.GetTarget();
 
         // Reapeat on seperate thread to safe performance
         InvokeRepeating("UpdatePath", 0, 0.2f);
@@ -45,6 +46,9 @@ public class EnemyAI : MonoBehaviour
 
     public void FoundPath(Path p)
     {
+        if (!target) {
+            return;
+        }
         if (!p.error)
         {
             path = p;
@@ -67,6 +71,10 @@ public class EnemyAI : MonoBehaviour
 
     void Fire()
     {
+        if (!target) {
+            return;
+        }
+        
         Vector2 direction = (target.position - transform.position).normalized;
         
         Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);

@@ -4,7 +4,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float startVelocity = 100;
-    
+
     private Rigidbody2D rb;
 
     void Start()
@@ -13,13 +13,14 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * startVelocity;
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
+    void OnCollisionEnter2D(Collision2D collision)
+    {
         // TODO: Do things related to damage etc. here
         Destroy(gameObject);
-	if (collision.gameObject.tag == "Damageable")
-	{
-		var healthController = collision.gameObject.GetComponent<HealthController>();
-		healthController.DealDamage(10);
-	}
+        if (collision.gameObject.tag == "Damageable")
+        {
+            var healthController = collision.gameObject.GetComponent<HealthController>();
+            healthController.DealDamage(10);
+        }
     }
 }
