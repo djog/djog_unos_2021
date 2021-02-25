@@ -4,6 +4,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float startVelocity = 100;
+    public float bulletDamage = 100;
     
     private Rigidbody2D rb;
 
@@ -19,7 +20,7 @@ public class Bullet : MonoBehaviour
 	if (collision.gameObject.tag == "Damageable")
 	{
 		var healthController = collision.gameObject.GetComponent<HealthController>();
-		healthController.DealDamage(10);
+		healthController.DealDamage(bulletDamage);
 	}
     }
 }
