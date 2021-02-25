@@ -10,8 +10,11 @@ public class HealthController : MonoBehaviour
         Health = startHealth;
     }
 
-    void DealDamage(float amount)
+    public void DealDamage(float amount)
     {
         Health -= amount;
+	if (Health <= 0){
+		Destroy(gameObject);
     }
+}
 }

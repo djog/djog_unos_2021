@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class BullletMovement : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     public float startVelocity = 100;
     
@@ -16,5 +16,10 @@ public class BullletMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision) {
         // TODO: Do things related to damage etc. here
         Destroy(gameObject);
+	if (collision.gameObject.tag == "Damageable")
+	{
+		var healthController = collision.gameObject.GetComponent<HealthController>();
+		healthController.DealDamage(10);
+	}
     }
 }
