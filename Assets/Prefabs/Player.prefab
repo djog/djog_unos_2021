@@ -181,8 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e190e418eac2a4db1173c171ae3d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireDelay: 0.1
   BulletPrefab: {fileID: 2302753052706346213, guid: 86073024f2c269749b2b91b344f29e5d, type: 3}
-  spawnOffset: 0.8
+  spawnOffset: 0.9
   spawnZ: 10
 --- !u!114 &1664888879816545687
 MonoBehaviour:

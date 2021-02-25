@@ -4763,9 +4763,9 @@ Tilemap:
       e33: 1
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: 6.2989393e-17, g: 6.2989393e-17, b: 6.2989393e-17, a: 6.2989393e-17}
+    m_Data: {r: 2.2768e-41, g: 2.2768e-41, b: 2.2768e-41, a: 2.2768e-41}
   - m_RefCount: 434
-    m_Data: {r: 0.13679248, g: 1, b: 0.26341322, a: 1}
+    m_Data: {r: 0.3060698, g: 0.35486576, b: 0.3584906, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4811,11 +4811,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025094777273812229, guid: c7931ad404b1e424a8173f60a41cdf38, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.15
+      value: 2.69
       objectReference: {fileID: 0}
     - target: {fileID: 9025094777273812229, guid: c7931ad404b1e424a8173f60a41cdf38, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.93
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 9025094777273812229, guid: c7931ad404b1e424a8173f60a41cdf38, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14664,9 +14664,9 @@ Tilemap:
       e33: 1
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: -1.8856e-41, g: -1.8856e-41, b: -1.8856e-41, a: -1.8856e-41}
+    m_Data: {r: 0, g: 0, b: 0, a: 0}
   - m_RefCount: 950
-    m_Data: {r: 1, g: 0.24056602, b: 0.24056602, a: 1}
+    m_Data: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14844,10 +14844,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 153897697532878188, guid: 0108370fc184bca40834782035ed6562, type: 3}
-      propertyPath: spawnOffset
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 2063883865584361187, guid: 0108370fc184bca40834782035ed6562, type: 3}
       propertyPath: m_Name
       value: Player
