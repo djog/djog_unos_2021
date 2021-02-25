@@ -118,6 +118,10 @@ MonoBehaviour:
   target: {fileID: 0}
   moveSpeed: 600
   nextWaypointDist: 1.2
+  fireDelay: 0.1
+  BulletPrefab: {fileID: 2302753052706346213, guid: 86073024f2c269749b2b91b344f29e5d, type: 3}
+  spawnOffset: 0.6
+  spawnZ: 10
 --- !u!50 &9025094777273812226
 Rigidbody2D:
   serializedVersion: 4
@@ -224,7 +228,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ac63d0a243233b648b2401d0d631d978, type: 3}
-  m_Color: {r: 0.3584906, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.990566, g: 0.08877712, b: 0.08877712, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
