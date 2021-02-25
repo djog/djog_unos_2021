@@ -76,7 +76,7 @@ public class EnemyAI : MonoBehaviour
         if (hitInfo.collider != null)
         {
             Debug.DrawLine(spawnPos, hitInfo.point);
-            if (hitInfo.collider.gameObject.CompareTag("Player"))
+            if (hitInfo.collider.transform == target.transform)
             {
                 fireTimer = fireDelay;
                 

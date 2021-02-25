@@ -118,7 +118,7 @@ MonoBehaviour:
   target: {fileID: 0}
   moveSpeed: 600
   nextWaypointDist: 1.2
-  fireDelay: 0.1
+  fireDelay: 0.6
   BulletPrefab: {fileID: 2302753052706346213, guid: 86073024f2c269749b2b91b344f29e5d, type: 3}
   spawnOffset: 0.6
   spawnZ: 10
