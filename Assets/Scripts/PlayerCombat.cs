@@ -6,11 +6,11 @@ public class PlayerCombat : MonoBehaviour
     public float spawnZ = 10.0f;
     public GameObject weapon;
     private float fireTimer;
-    private weapon weaponScript;
+    private Weapon weaponScript;
 
     void Start()
     {
-        weaponScript = weapon.GetComponent<weapon>();
+        weaponScript = weapon.GetComponent<Weapon>();
     }
 
     void Update()
@@ -27,7 +27,7 @@ public class PlayerCombat : MonoBehaviour
             Vector2 direction = (mousePos - ownPos).normalized;
             Vector3 spawnPos = ownPos + direction * spawnOffset;
             float degrees = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            var bullet = Instantiate(weaponScript.bullet, spawnPos, Quaternion.Euler(0.0f, 0.0f, degrees));
+            var bullet = Instantiate(weaponScript.bulletPrefab, spawnPos, Quaternion.Euler(0.0f, 0.0f, degrees));
         }
     }
 }
