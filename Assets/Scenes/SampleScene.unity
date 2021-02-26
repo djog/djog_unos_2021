@@ -15123,10 +15123,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 9025094777273812228, guid: c7931ad404b1e424a8173f60a41cdf38, type: 3}
-      propertyPath: m_TagString
-      value: Damageable
-      objectReference: {fileID: 0}
     - target: {fileID: 9025094777273812229, guid: c7931ad404b1e424a8173f60a41cdf38, type: 3}
       propertyPath: m_RootOrder
       value: 4
