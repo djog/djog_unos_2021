@@ -1,14 +1,19 @@
+using System;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
     public float spawnOffset = 1.0f;
     public float spawnZ = 10.0f;
+    public Transform weaponParent;
     public Weapon weapon;
     private float fireTimer;
 
     void Update()
     {
+        if (!weapon)
+            return;
+
         // Aim the weapon
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 ownPos = new Vector2(transform.position.x, transform.position.y);
@@ -27,5 +32,14 @@ public class PlayerCombat : MonoBehaviour
             fireTimer = weapon.fireDelay;
             var bullet = Instantiate(weapon.bulletPrefab, weapon.bulletSpawn.position, weapon.bulletSpawn.rotation);
         }
+    }
+
+    public void PickupWeapon(GameObject prefab)
+    {
+        if (weaponParent.childCount > 0)
+        {
+            Destroy(weaponParent.GetChild(0).gameObject);
+        }
+        weapon = Instantiate(prefab, weaponParent).GetComponent<Weapon>();
     }
 }
