@@ -115,11 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03086b98968cd9441807600d317a2d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   moveSpeed: 600
   nextWaypointDist: 1.2
   fireDelay: 0.6
-  BulletPrefab: {fileID: 2302753052706346213, guid: 86073024f2c269749b2b91b344f29e5d, type: 3}
+  BulletPrefab: {fileID: 2302753052706346213, guid: 2a7ca7363f4a04141bc6a30d16e92d13, type: 3}
   spawnOffset: 0.6
   spawnZ: 10
 --- !u!50 &9025094777273812226
@@ -155,7 +154,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17711b82006907c4aa02f5047774f7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   startHealth: 100
+  OnHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9025094778161815748
 GameObject:
   m_ObjectHideFlags: 0
