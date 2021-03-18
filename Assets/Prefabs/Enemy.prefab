@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 9025094777273812225}
   - component: {fileID: 9025094777273812226}
   - component: {fileID: 1983300475084086874}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
-  m_TagString: Damageable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03086b98968cd9441807600d317a2d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   moveSpeed: 600
   nextWaypointDist: 1.2
   fireDelay: 0.6
@@ -155,7 +154,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17711b82006907c4aa02f5047774f7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   startHealth: 100
+  OnHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9025094778161815748
 GameObject:
   m_ObjectHideFlags: 0

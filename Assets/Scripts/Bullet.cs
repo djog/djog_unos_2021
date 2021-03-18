@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
-        if (collision.gameObject.tag == "Damageable")
+        if (collision.gameObject.layer == 6) // 6 is Damageable layer
         {
             var healthController = collision.gameObject.GetComponent<HealthController>();
             healthController.DealDamage(damage);
