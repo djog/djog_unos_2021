@@ -93,9 +93,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3705445481970343489}
   - component: {fileID: 6867225232040081808}
+  - component: {fileID: 3348647114579004189}
   m_Layer: 0
   m_Name: Default Weapon
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,6 +131,22 @@ MonoBehaviour:
   fireDelay: 0.2
   bulletPrefab: {fileID: 2302753052706346213, guid: 86073024f2c269749b2b91b344f29e5d, type: 3}
   bulletSpawn: {fileID: 5367347524754242322}
+--- !u!58 &3348647114579004189
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3896906987869023176}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.684608, y: 0.01059103}
+  serializedVersion: 2
+  m_Radius: 0.35845566
 --- !u!1 &5367347524754242323
 GameObject:
   m_ObjectHideFlags: 0

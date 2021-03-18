@@ -34,12 +34,24 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    public void PickupWeapon(GameObject prefab)
+    void OnTriggerEnter2D(Collider2D collider)
     {
+        if (collider.gameObject.CompareTag("Pickup"))
+        {
+            PickupWeapon(collider.gameObject);
+        }
+    }
+
+    public void PickupWeapon(GameObject weaponObject)
+    {
+        // TODO: Multiple inventory slots?
         if (weaponParent.childCount > 0)
         {
             Destroy(weaponParent.GetChild(0).gameObject);
         }
-        weapon = Instantiate(prefab, weaponParent).GetComponent<Weapon>();
+
+        weapon = weaponObject.GetComponent<Weapon>();
+        weapon.transform.SetParent(weaponParent);
+        weapon.transform.localPosition = Vector3.zero;
     }
 }
