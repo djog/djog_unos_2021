@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
     public float nextWaypointDist = 1.2f;
 
     [Header("Combat")]
-    public float fireDelay = 0.1f;
+    public Weapon weapon;
     public GameObject BulletPrefab;
     public float spawnOffset = 1.0f;
     public float spawnZ = 10.0f;
@@ -58,6 +58,9 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
+        Vector2 direction = (target.position - transform.position).normalized;
+        float degrees = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        weapon.transform.rotation = Quaternion.Euler(0.0f, 0.0f, degrees);
         // Combat
         if (fireTimer > 0.0f)
         {
@@ -65,17 +68,17 @@ public class EnemyAI : MonoBehaviour
         }
         if (fireTimer <= 0.0)
         {
-            Fire();
+            Fire(direction);
         }
     }
 
-    void Fire()
+    void Fire(Vector2 direction)
     {
         if (!target) {
             return;
         }
         
-        Vector2 direction = (target.position - transform.position).normalized;
+        
         
         Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
         Vector3 spawnPos = currentPosition + direction * spawnOffset;
@@ -86,7 +89,7 @@ public class EnemyAI : MonoBehaviour
             Debug.DrawLine(spawnPos, hitInfo.point);
             if (hitInfo.collider.transform == target.transform)
             {
-                fireTimer = fireDelay;
+                fireTimer = weapon.fireDelay;
                 
                 float degrees = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 var bullet = Instantiate(BulletPrefab, spawnPos, Quaternion.Euler(0.0f, 0.0f, degrees));
