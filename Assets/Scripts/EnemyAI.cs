@@ -99,7 +99,10 @@ public class EnemyAI : MonoBehaviour
         if (BulletPrefab != null)
         {
           var bullet = Instantiate(BulletPrefab, spawnPos, Quaternion.Euler(0.0f, 0.0f, degrees));
-
+        }
+        else
+        {
+          
         }
 
       }
