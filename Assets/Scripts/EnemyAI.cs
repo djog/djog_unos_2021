@@ -92,7 +92,12 @@ public class EnemyAI : MonoBehaviour
                 fireTimer = weapon.fireDelay;
                 
                 float degrees = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                var bullet = Instantiate(BulletPrefab, spawnPos, Quaternion.Euler(0.0f, 0.0f, degrees));
+                if (BulletPrefab != null) 
+                {
+                    var bullet = Instantiate(BulletPrefab, spawnPos, Quaternion.Euler(0.0f, 0.0f, degrees));
+
+                }
+                
             }
         }
     }
