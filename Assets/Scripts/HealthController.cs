@@ -12,6 +12,7 @@ public class HealthController : MonoBehaviour
     [Header("Events")]
     public UnityEvent OnHealthChange;
     public UnityEvent OnDeath;
+    public HealthBar healthBar;
 
 
 
