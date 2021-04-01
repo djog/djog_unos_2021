@@ -37,6 +37,9 @@ public class HealthController : MonoBehaviour
         OnHealthChange.Invoke();
     }
 
+public void PowerUp(float amount){
+    Health -= amount;
+}
     public void DealDamage(float amount)
     {
         if (IsDead)
