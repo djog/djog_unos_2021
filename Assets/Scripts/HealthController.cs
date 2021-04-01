@@ -20,6 +20,9 @@ public class HealthController : MonoBehaviour
     {
         Health = startHealth;
         HealthChanged();
+	if (healthBar != null){
+	    healthBar.maxHealth = startHealth;  
+	}
     }
 
     void HealthChanged()
@@ -28,6 +31,9 @@ public class HealthController : MonoBehaviour
         {
             InGameUI.UpdateText("health", $"{Health} HP");
         }
+	if (healthBar != null){
+	    healthBar.health = Health;  
+	}
         OnHealthChange.Invoke();
     }
 
