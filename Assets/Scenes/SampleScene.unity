@@ -239,7 +239,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &545600761
+--- !u!43 &713467404
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5045,8 +5045,8 @@ MonoBehaviour:
   - {x: 16, y: 12, z: 0}
   - {x: -22, y: 12, z: 0}
   m_ShapePathHash: 0
-  m_Mesh: {fileID: 545600761}
-  m_InstanceId: 20574
+  m_Mesh: {fileID: 713467404}
+  m_InstanceId: 17696
 --- !u!1 &890351861
 GameObject:
   m_ObjectHideFlags: 0
