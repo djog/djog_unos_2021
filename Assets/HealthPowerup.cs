@@ -17,9 +17,9 @@ public class HealthPowerup : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-       var colideObject = collider.gameObject; 
-       if (colideObject.tag == "Player"){
-           colideObject.GetComponent<HealthController>().    
-       }
+       // var colideObject = collider.gameObject; 
+       // if (colideObject.tag == "Player"){
+       //     colideObject.GetComponent<HealthController>().    
+       // }
     }
 }
