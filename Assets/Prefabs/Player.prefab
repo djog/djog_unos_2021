@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 1364126667}
   - component: {fileID: 153897697532878188}
   - component: {fileID: 1664888879816545687}
+  - component: {fileID: 893711065}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -214,8 +215,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnOffset: 0.9
   spawnZ: 10
-  weaponParent: {fileID: 1330086364}
-  weapon: {fileID: 0}
 --- !u!114 &1664888879816545687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,10 +228,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
-  startHealth: 100
+  startHealth: 1e+23
   OnHealthChange:
     m_PersistentCalls:
       m_Calls: []
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  healthBar: {fileID: 0}
+--- !u!114 &893711065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063883865584361187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b048f43cef6c44bafb21107a4cc400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponParent: {fileID: 1330086364}
+  selectedSlot: 0

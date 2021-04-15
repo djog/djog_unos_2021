@@ -5,15 +5,30 @@ public class PlayerCombat : MonoBehaviour
 {
     public float spawnOffset = 1.0f;
     public float spawnZ = 10.0f;
-    public Transform weaponParent;
-    public Weapon weapon;
     private float fireTimer;
+
+    private PlayerInventory inventory;
+
+    void Start()
+    {
+        inventory = GetComponent<PlayerInventory>();
+    }
 
     void Update()
     {
-        if (!weapon)
+        if (!inventory) {
             return;
+        }
+        InventoryItem selected = inventory.SelectedItem();
+        if (selected.isWeapon)
+        {
+            Weapon weapon = selected.weapon;
+            UpdateWeapon(weapon);
+        }
+    }
 
+    void UpdateWeapon(Weapon weapon)
+    {
         // Aim the weapon
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 ownPos = new Vector2(transform.position.x, transform.position.y);
@@ -32,26 +47,5 @@ public class PlayerCombat : MonoBehaviour
             fireTimer = weapon.fireDelay;
             var bullet = Instantiate(weapon.bulletPrefab, weapon.bulletSpawn.position, weapon.bulletSpawn.rotation);
         }
-    }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.CompareTag("Pickup"))
-        {
-            PickupWeapon(collider.gameObject);
-        }
-    }
-
-    public void PickupWeapon(GameObject weaponObject)
-    {
-        // TODO: Multiple inventory slots?
-        if (weaponParent.childCount > 0)
-        {
-            Destroy(weaponParent.GetChild(0).gameObject);
-        }
-
-        weapon = weaponObject.GetComponent<Weapon>();
-        weapon.transform.SetParent(weaponParent);
-        weapon.transform.localPosition = Vector3.zero;
     }
 }
