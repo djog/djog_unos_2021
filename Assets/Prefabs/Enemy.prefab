@@ -272,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 428420405803426081, guid: 2281fca446fa0e043a0d035a9672fe72, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 428420405803426081, guid: 2281fca446fa0e043a0d035a9672fe72, type: 3}
       propertyPath: m_LocalPosition.z
@@ -309,26 +309,6 @@ PrefabInstance:
     - target: {fileID: 428420405803426095, guid: 2281fca446fa0e043a0d035a9672fe72, type: 3}
       propertyPath: m_Name
       value: Health Bar
-      objectReference: {fileID: 0}
-    - target: {fileID: 428420405955945710, guid: 2281fca446fa0e043a0d035a9672fe72, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 6.924
-      objectReference: {fileID: 0}
-    - target: {fileID: 428420405955945710, guid: 2281fca446fa0e043a0d035a9672fe72, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8655
-      objectReference: {fileID: 0}
-    - target: {fileID: 428420405955945710, guid: 2281fca446fa0e043a0d035a9672fe72, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.8655
-      objectReference: {fileID: 0}
-    - target: {fileID: 428420405955945710, guid: 2281fca446fa0e043a0d035a9672fe72, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5381
-      objectReference: {fileID: 0}
-    - target: {fileID: 428420405955945710, guid: 2281fca446fa0e043a0d035a9672fe72, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0673
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2281fca446fa0e043a0d035a9672fe72, type: 3}

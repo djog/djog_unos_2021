@@ -8,21 +8,20 @@ public class HealthController : MonoBehaviour
 
     public float Health { get; private set; }
     public bool IsDead { get; private set; }
-    
+
     [Header("Events")]
     public UnityEvent OnHealthChange;
     public UnityEvent OnDeath;
     public HealthBar healthBar;
 
-
-
     void Start()
     {
         Health = startHealth;
         HealthChanged();
-	if (healthBar != null){
-	    healthBar.maxHealth = startHealth;  
-	}
+        if (healthBar != null)
+        {
+            healthBar.maxHealth = startHealth;
+        }
     }
 
     void HealthChanged()
@@ -31,15 +30,18 @@ public class HealthController : MonoBehaviour
         {
             InGameUI.UpdateText("health", $"{Health} HP");
         }
-	if (healthBar != null){
-	    healthBar.health = Health;  
-	}
+        if (healthBar != null)
+        {
+            healthBar.health = Health;
+        }
         OnHealthChange.Invoke();
     }
 
-public void PowerUp(float amount){
-    Health -= amount;
-}
+    public void PowerUp(float amount)
+    {
+        Health -= amount;
+    }
+
     public void DealDamage(float amount)
     {
         if (IsDead)
