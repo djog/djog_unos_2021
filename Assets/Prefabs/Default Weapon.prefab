@@ -131,6 +131,7 @@ MonoBehaviour:
   fireDelay: 0.2
   bulletPrefab: {fileID: 2302753052706346213, guid: 86073024f2c269749b2b91b344f29e5d, type: 3}
   bulletSpawn: {fileID: 5367347524754242322}
+  iconSprite: {fileID: -2413806693520163455, guid: e7f02db666f082441a60da79ed5e52d3, type: 3}
 --- !u!58 &3348647114579004189
 CircleCollider2D:
   m_ObjectHideFlags: 0

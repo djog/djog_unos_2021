@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class InventoryItem
 {
-    public bool isEmptpy
+    public bool IsEmpty
     {
         get
         {
@@ -11,13 +11,28 @@ public class InventoryItem
         }
     }
 
-    public bool isWeapon
+    public bool IsWeapon
     {
         get
         {
             return weapon != null;
         }
     }
+    public Sprite IconSprite
+    {
+        get
+        {
+            if (weapon)
+            {
+                return weapon.iconSprite;
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+
 
     public Weapon weapon;
 }
@@ -26,7 +41,7 @@ public class PlayerInventory : MonoBehaviour
 {
     public Transform weaponParent;
 
-    const int SLOT_COUNT = 3;
+    const int SLOT_COUNT = 4;
     public InventoryItem[] slots;
     public int selectedSlot = 0;
 
@@ -37,27 +52,34 @@ public class PlayerInventory : MonoBehaviour
         {
             slots[i] = new InventoryItem();
         }
+        UIController.InitInventoryUI(SLOT_COUNT);
     }
 
     public void Update()
     {
-        if (Input.mouseScrollDelta.y > 0.0)
+        if (Input.mouseScrollDelta.y < 0.0)
         {
             selectedSlot++;
             selectedSlot %= SLOT_COUNT;
+            UpdateInventory();
         }
-        else if (Input.mouseScrollDelta.y < 0.0)
+        else if (Input.mouseScrollDelta.y > 0.0)
         {
             selectedSlot--;
             if (selectedSlot < 0)
             {
                 selectedSlot = SLOT_COUNT - 1;
             }
+            UpdateInventory();
         }
+    }
 
+    void UpdateInventory()
+    {
+        // Hide/show the selected object
         for (int i = 0; i < SLOT_COUNT; i++)
         {
-            if (slots[i].isEmptpy)
+            if (slots[i].IsEmpty)
             {
                 continue;
             }
@@ -70,6 +92,8 @@ public class PlayerInventory : MonoBehaviour
                 slots[i].weapon.gameObject.SetActive(false);
             }
         }
+        // Update UI
+        UIController.UpdateInventoryUI(slots, selectedSlot);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -86,7 +110,7 @@ public class PlayerInventory : MonoBehaviour
         int? firstFreeSlot = null;
         for (int i = 0; i < slots.Length; i++)
         {
-            if (slots[i].isEmptpy)
+            if (slots[i].IsEmpty)
             {
                 freeSlots++;
                 if (firstFreeSlot == null)
@@ -101,6 +125,7 @@ public class PlayerInventory : MonoBehaviour
             weapon.transform.SetParent(weaponParent);
             weapon.transform.localPosition = Vector3.zero;
             slots[firstFreeSlot.Value] = new InventoryItem() { weapon = weapon };
+            UpdateInventory();
         }
     }
 

@@ -20,7 +20,7 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
         InventoryItem selected = inventory.SelectedItem();
-        if (selected.isWeapon)
+        if (selected.IsWeapon)
         {
             Weapon weapon = selected.weapon;
             UpdateWeapon(weapon);
