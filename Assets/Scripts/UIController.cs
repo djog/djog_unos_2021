@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
@@ -20,6 +21,7 @@ public class UIController : MonoBehaviour
     public GameObject gameOverParent;
 
     [Header("Inventory")]
+    public Text pickupHint;
     public Transform inventoryParent;
     public GameObject inventorySlotPreafb;
     private GameObject[] slotUis;
@@ -64,6 +66,19 @@ public class UIController : MonoBehaviour
         for (int i = 0; i < slots.Length; i++)
         {
             instance.slotUis[i].GetComponent<InventorySlotUI>().SetDisplay(i + 1, slots[i].IconSprite, i == selectedSlot);
+        }
+    }
+
+    public static void SetPickupHint(string text)
+    {
+        if (!string.IsNullOrEmpty(text))
+        {
+            instance.pickupHint.gameObject.SetActive(true);
+            instance.pickupHint.text = text;
+        }
+        else
+        {
+            instance.pickupHint.gameObject.SetActive(false);
         }
     }
 }

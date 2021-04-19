@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
-  startHealth: 1e+23
+  startHealth: 100
   OnHealthChange:
     m_PersistentCalls:
       m_Calls: []
@@ -249,4 +249,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponParent: {fileID: 1330086364}
+  pickupRadius: 1
   selectedSlot: 0

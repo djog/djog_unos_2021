@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class InventoryItem
 {
@@ -41,9 +42,11 @@ public class PlayerInventory : MonoBehaviour
 {
     public Transform weaponParent;
 
+    public float pickupRadius = 1.0f;
+
     const int SLOT_COUNT = 4;
-    public InventoryItem[] slots;
-    public int selectedSlot = 0;
+    private InventoryItem[] slots;
+    private int selectedSlot = 0;
 
     void Start()
     {
@@ -57,6 +60,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void Update()
     {
+        // Inventory Input
         if (Input.mouseScrollDelta.y < 0.0)
         {
             selectedSlot++;
@@ -72,7 +76,38 @@ public class PlayerInventory : MonoBehaviour
             }
             UpdateInventory();
         }
+
+        // Pickup Update
+        bool pickupInRadius = false;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, pickupRadius);
+        List<GameObject> pickups = new List<GameObject>();
+        foreach (var collider in colliders)
+        {
+            if (collider.CompareTag("Pickup"))
+            {
+                pickups.Add(collider.gameObject);
+                pickupInRadius = true;
+            }
+        }
+        if (pickupInRadius)
+        {
+            UIController.SetPickupHint(slots[selectedSlot].IsEmpty ? "[F] Pickup" : "[F] Replace");
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                GameObject closest = pickups.OrderBy(p => transform.position - p.transform.position).ToList()[0];
+                PickupOrReplaceWeapon(selectedSlot, closest.gameObject);
+            }
+        }
+        else
+        {
+            UIController.SetPickupHint(null);
+        }
+        if (!slots[selectedSlot].IsEmpty && Input.GetKeyDown(KeyCode.G))
+        {
+            DropItem(selectedSlot);
+        }
     }
+
 
     void UpdateInventory()
     {
@@ -96,37 +131,28 @@ public class PlayerInventory : MonoBehaviour
         UIController.UpdateInventoryUI(slots, selectedSlot);
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    public void DropItem(int slot)
     {
-        if (collider.CompareTag("Pickup"))
-        {
-            PickupWeapon(collider.gameObject);
-        }
+        GameObject obj = slots[slot].weapon.gameObject;
+        obj.transform.SetParent(null);
+        obj.tag = "Pickup";
+        slots[slot].weapon = null;
+        UpdateInventory();
     }
 
-    public void PickupWeapon(GameObject weaponObject)
+    public void PickupOrReplaceWeapon(int slot, GameObject weaponObject)
     {
-        int freeSlots = 0;
-        int? firstFreeSlot = null;
-        for (int i = 0; i < slots.Length; i++)
+        if (!slots[selectedSlot].IsEmpty)
         {
-            if (slots[i].IsEmpty)
-            {
-                freeSlots++;
-                if (firstFreeSlot == null)
-                {
-                    firstFreeSlot = i;
-                }
-            }
+            DropItem(slot);
         }
-        if (freeSlots >= 1)
-        {
-            Weapon weapon = weaponObject.GetComponent<Weapon>();
-            weapon.transform.SetParent(weaponParent);
-            weapon.transform.localPosition = Vector3.zero;
-            slots[firstFreeSlot.Value] = new InventoryItem() { weapon = weapon };
-            UpdateInventory();
-        }
+
+        Weapon weapon = weaponObject.GetComponent<Weapon>();
+        weapon.transform.SetParent(weaponParent);
+        weapon.transform.localPosition = Vector3.zero;
+        weapon.gameObject.tag = "InventoryItem";
+        slots[selectedSlot] = new InventoryItem() { weapon = weapon };
+        UpdateInventory();
     }
 
     public InventoryItem SelectedItem()

@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03ad1ea93ceb334880bb3d66fcc2115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireDelay: 0.2
+  fireDelay: 0.5
   bulletPrefab: {fileID: 2302753052706346213, guid: 86073024f2c269749b2b91b344f29e5d, type: 3}
   bulletSpawn: {fileID: 5367347524754242322}
   iconSprite: {fileID: -2413806693520163455, guid: e7f02db666f082441a60da79ed5e52d3, type: 3}
@@ -147,7 +147,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.684608, y: 0.01059103}
   serializedVersion: 2
-  m_Radius: 0.35845566
+  m_Radius: 0.35
 --- !u!1 &5367347524754242323
 GameObject:
   m_ObjectHideFlags: 0
