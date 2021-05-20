@@ -6,12 +6,16 @@ public class Bullet : MonoBehaviour
     public float startVelocity = 100;
     public float damage = 100;
 
+    public float destroyAfter = 8.0f;
+
     private Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * startVelocity;
+        
+        Destroy(gameObject, destroyAfter);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

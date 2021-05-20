@@ -161,10 +161,24 @@ MonoBehaviour:
   OnHealthChange:
     m_PersistentCalls:
       m_Calls: []
+  OnHealthScaleChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1325696484561128427}
+        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
+        m_MethodName: UpdateHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
-  healthBar: {fileID: 1325696484561128427}
 --- !u!1 &9025094778161815748
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +221,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -257,14 +272,6 @@ PrefabInstance:
     - target: {fileID: 428420405803426081, guid: 2281fca446fa0e043a0d035a9672fe72, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 428420405803426081, guid: 2281fca446fa0e043a0d035a9672fe72, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 428420405803426081, guid: 2281fca446fa0e043a0d035a9672fe72, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 428420405803426081, guid: 2281fca446fa0e043a0d035a9672fe72, type: 3}
       propertyPath: m_LocalPosition.x

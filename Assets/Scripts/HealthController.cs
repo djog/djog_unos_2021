@@ -1,5 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
+
+[Serializable]
+public class FloatEvent : UnityEvent<float> { }
+
 
 public class HealthController : MonoBehaviour
 {
@@ -10,18 +15,14 @@ public class HealthController : MonoBehaviour
     public bool IsDead { get; private set; }
 
     [Header("Events")]
-    public UnityEvent OnHealthChange;
+    public FloatEvent OnHealthChange;
+    public FloatEvent OnHealthScaleChange;
     public UnityEvent OnDeath;
-    public HealthBar healthBar;
 
     void Start()
     {
         Health = startHealth;
         HealthChanged();
-        if (healthBar != null)
-        {
-            healthBar.maxHealth = startHealth;
-        }
     }
 
     void HealthChanged()
@@ -30,11 +31,8 @@ public class HealthController : MonoBehaviour
         {
             InGameUI.UpdateText("health", $"{Health} HP");
         }
-        if (healthBar != null)
-        {
-            healthBar.health = Health;
-        }
-        OnHealthChange.Invoke();
+        OnHealthChange.Invoke(Health);
+        OnHealthScaleChange.Invoke(Health / startHealth);
     }
 
     public void PowerUp(float amount)
